@@ -1,0 +1,1324 @@
+{
+    "lla_modle_path": "127.0.0.1:8080",
+    "name": "Dien Bien Phu 1954 - Complete Historical Simulation",
+    "prompt": "Historical simulation of the Battle of Dien Bien Phu (March 13 - May 7, 1954). Vietnamese forces execute a 56-day siege with superior artillery positioned on surrounding hills, tunnel networks for protection and assault, and overwhelming numerical advantage. French forces defend fortified valley positions with limited air supply.",
+    "start_date": "13/03/1954 17:00",
+    "num_rounds": 56,
+    "battle_config": {
+        "combat_speed": 100,
+        "max_rounds": 56,
+        "casualty_coeff": 0.08,
+        "tunnel_buffer": 50,
+        "max_deploy_ratio": 0.35,
+        "artillery_dominance_vn": 1.4,
+        "french_air_supply_degradation": 0.02,
+        "morale_loss_per_stronghold": 0.15
+    },
+    "victory_conditions": {
+        "Vietnamese": "Capture all strongholds (Beatrice, Gabrielle, Anne-Marie, Huguette, Claudine, Eliane, Dominique) AND reduce French effective combat strength below 25% by Round 56.",
+        "French": "Maintain control of central command (Claudine) and airstrip access until Round 56 OR inflict 40%+ casualties on Vietnamese forces to force withdrawal."
+    },
+    "historical_events": [
+        {
+            "round": 1,
+            "date": "13/03/1954",
+            "event": "Việt Minh artillery bombardment begins. Beatrice stronghold attacked by Division 312."
+        },
+        {
+            "round": 2,
+            "date": "14/03/1954",
+            "event": "Beatrice falls. French Colonel Gaucher killed. 500+ French casualties."
+        },
+        {
+            "round": 3,
+            "date": "15/03/1954",
+            "event": "Gabrielle attacked by Division 308. Algerian battalion overwhelmed."
+        },
+        {
+            "round": 4,
+            "date": "16/03/1954",
+            "event": "Gabrielle falls. French airstrip partially destroyed by artillery."
+        },
+        {
+            "round": 5,
+            "date": "17/03/1954",
+            "event": "Anne-Marie abandoned by T'ai troops. Vietnamese tighten siege."
+        },
+        {
+            "round": 18,
+            "date": "30/03/1954",
+            "event": "First phase ends. Vietnamese begin extensive tunnel system toward remaining strongholds."
+        },
+        {
+            "round": 40,
+            "date": "01/05/1954",
+            "event": "Final assault begins. Eliane and Dominique under sustained attack."
+        },
+        {
+            "round": 54,
+            "date": "06/05/1954",
+            "event": "Eliane falls. French positions collapsing. De Castries requests ceasefire."
+        },
+        {
+            "round": 56,
+            "date": "07/05/1954",
+            "event": "French surrender. 11,721 captured including 4,436 wounded. Vietnamese victory."
+        }
+    ],
+    "red_configs": {
+        "name": "Vietnamese",
+        "initial_position": [ 600, 100 ],
+        "initial_troops": 49500,
+        "speed": 4,
+        "morale": "High",
+        "commander": "Vo Nguyen Giap",
+        "targetedAgentName": "Beatrice",
+        "equipment": {
+            "rifles": 38000,
+            "machine_guns": 1800,
+            "mortars": 450,
+            "anti_aircraft": 36,
+            "artillery_105mm": 24,
+            "artillery_75mm": 20,
+            "heavy_mortars_120mm": 40
+        },
+        "tactics": {
+            "stealth": 0.85,
+            "assault": 0.70,
+            "defense": 0.75,
+            "artillery": 0.90,
+            "siege": 0.85
+        },
+        "ammo": {
+            "rifles": 600000,
+            "artillery": 8000,
+            "mortars": 12000
+        },
+        "logistics": {
+            "porters": 75000,
+            "bicycles": 21000,
+            "resupply_rate": "6000 rounds/day via Route 41",
+            "resupply_path": "jungle trails and mountain roads",
+            "supply_stability": 0.95
+        },
+        "initialMission": "Phase 1: Destroy isolated northern strongholds (Beatrice, Gabrielle, Anne-Marie) using artillery superiority and night assaults. Phase 2: Build tunnel networks. Phase 3: Final assault on central positions.",
+        "historySetting": "Giap positioned 105mm howitzers on hills (camouflaged), surprising French intelligence. Used human wave tactics with 3:1 advantage. Tunnels reached within 50m of French positions. Anti-aircraft prevented effective resupply. Monsoon aided concealment.",
+        "armySetting": "49,500 combat troops + 75,000 logistics. 4 infantry divisions (304, 308, 312, 316) + artillery division 351. Chinese advisors provided artillery training. Exceptional morale despite 40% casualty rate.",
+        "roleSetting": "PRIMARY DOCTRINE: 1) Artillery FIRST - suppress French guns before infantry assault, 2) Night attacks only - avoid air strikes, 3) Tunnel approach to avoid casualties, 4) Isolate strongholds - cut French mutual support, 5) NEVER mass assault in daylight, 6) Accept 2:1 loss ratio for strategic positions, 7) Rotate units - maintain morale.",
+        "troopInformation": "49,500 main force regulars. 70% experienced from campaigns against French mobile groups. Well-disciplined. Capable of carrying 50kg loads over mountains. Trained in tunnel warfare and night combat. Political officers maintain morale.",
+        "supply_chain_resilience": "Exceptional - 260,000 porters on rotation mobilized 20,000 tons of supplies over 3 months. Each porter carried 25-40kg. Bicycles modified to carry 200kg. French air interdiction ineffective due to jungle canopy and night movement.",
+        "sub_agents": [
+            {
+                "name": "Div_308",
+                "initialNumOfTroops": 12500,
+                "initial_position": [ 550, 150 ],
+                "troopType": "infantry",
+                "speed": 4,
+                "targetedAgentName": "Gabrielle",
+                "equipment": {
+                    "rifles": 9500,
+                    "machine_guns": 480,
+                    "mortars": 80,
+                    "bangalore_torpedoes": 60
+                },
+                "tactics": {
+                    "stealth": 0.85,
+                    "assault": 0.75,
+                    "defense": 0.70,
+                    "night_combat": 0.90
+                },
+                "ammo": {
+                    "rifles": 120000,
+                    "grenades": 8000
+                }
+            },
+            {
+                "name": "Div_312",
+                "initialNumOfTroops": 13000,
+                "initial_position": [ 620, 80 ],
+                "troopType": "infantry",
+                "speed": 4,
+                "targetedAgentName": "Beatrice",
+                "equipment": {
+                    "rifles": 10000,
+                    "machine_guns": 520,
+                    "mortars": 90,
+                    "bangalore_torpedoes": 80
+                },
+                "tactics": {
+                    "stealth": 0.80,
+                    "assault": 0.80,
+                    "defense": 0.70,
+                    "night_combat": 0.85
+                },
+                "ammo": {
+                    "rifles": 130000,
+                    "grenades": 10000
+                }
+            },
+            {
+                "name": "Div_316",
+                "initialNumOfTroops": 11000,
+                "initial_position": [ 580, 200 ],
+                "troopType": "infantry",
+                "speed": 4,
+                "targetedAgentName": "Anne_Marie",
+                "equipment": {
+                    "rifles": 8500,
+                    "machine_guns": 420,
+                    "mortars": 70
+                },
+                "tactics": {
+                    "stealth": 0.85,
+                    "assault": 0.65,
+                    "defense": 0.75
+                },
+                "ammo": { "rifles": 110000 }
+            },
+            {
+                "name": "Div_304",
+                "initialNumOfTroops": 8000,
+                "initial_position": [ 500, 150 ],
+                "troopType": "infantry",
+                "speed": 4,
+                "targetedAgentName": "Huguette",
+                "equipment": {
+                    "rifles": 6500,
+                    "machine_guns": 350,
+                    "mortars": 60
+                },
+                "tactics": {
+                    "stealth": 0.80,
+                    "assault": 0.70,
+                    "defense": 0.75
+                },
+                "ammo": { "rifles": 95000 }
+            },
+            {
+                "name": "Artillery_351",
+                "initialNumOfTroops": 5000,
+                "initial_position": [ 700, 50 ],
+                "troopType": "artillery",
+                "speed": 2,
+                "targetedAgentName": "French_Artillery_Zone",
+                "equipment": {
+                    "artillery_105mm": 24,
+                    "artillery_75mm": 20,
+                    "heavy_mortars_120mm": 40,
+                    "anti_aircraft_37mm": 36,
+                    "rifles": 800
+                },
+                "tactics": {
+                    "stealth": 0.90,
+                    "assault": 0.40,
+                    "defense": 0.60,
+                    "artillery": 0.95,
+                    "camouflage": 0.95
+                },
+                "ammo": {
+                    "artillery": 8000,
+                    "anti_aircraft": 3000
+                },
+                "special_capability": "Hill-positioned artillery with direct line of sight to French positions. Camouflaged gun positions immune to air strikes. Can provide fire support to all divisions."
+            }
+        ],
+        "individual_profiles": {
+            "Vietnamese_Profile_1": {
+                "Name": "Hoàng Văn Tuấn",
+                "Age": 24,
+                "Occupation": "Nông dân, chiến sĩ Tiểu đoàn 9",
+                "Personality": "Kiên cường, kỷ luật cao, sẵn sàng hy sinh.",
+                "BodyCondition": "Dẻo dai, quen địa hình núi rừng, chịu đựng tốt.",
+                "MoraleStart": "Very High",
+                "current_fatigue_level": "Low",
+                "combat_experience": "18 months - participated in Northwest campaign"
+            },
+            "Vietnamese_Profile_2": {
+                "Name": "Trần Thị Lan",
+                "Age": 21,
+                "Occupation": "Y tá quân y, Trung đoàn 88",
+                "Personality": "Dũng cảm, chăm sóc chu đáo, không ngại nguy hiểm.",
+                "BodyCondition": "Khỏe mạnh, được huấn luyện cấp cứu chiến trường.",
+                "MoraleStart": "High",
+                "current_fatigue_level": "Medium",
+                "special_skill": "Can treat wounded under fire"
+            },
+            "Vietnamese_Profile_3": {
+                "Name": "Nguyễn Thanh Bình",
+                "Age": 35,
+                "Occupation": "Đội trưởng đội công binh",
+                "Personality": "Cẩn thận, kiên nhẫn, giỏi đào hầm.",
+                "BodyCondition": "Khỏe, có kinh nghiệm xây dựng công sự.",
+                "MoraleStart": "High",
+                "current_fatigue_level": "Medium",
+                "special_skill": "Tunnel engineering expert"
+            }
+        }
+    },
+    "green_configs": {
+        "name": "French",
+        "initial_position": [ 100, 0 ],
+        "initial_troops": 10814,
+        "speed": 3,
+        "morale": "Medium",
+        "commander": "Christian de Castries",
+        "targetedAgentName": "Div_312",
+        "equipment": {
+            "rifles": 9500,
+            "machine_guns": 450,
+            "artillery_105mm": 4,
+            "artillery_155mm": 4,
+            "mortars_81mm": 48,
+            "mortars_120mm": 16,
+            "tanks_M24": 10,
+            "aircraft_support": "theoretical"
+        },
+        "tactics": {
+            "stealth": 0.35,
+            "assault": 0.55,
+            "defense": 0.85,
+            "artillery": 0.70,
+            "fortification": 0.80
+        },
+        "ammo": {
+            "rifles": 250000,
+            "artillery": 15000,
+            "mortars": 8000
+        },
+        "logistics": {
+            "air_resupply": "Initial 200 tons/day, degrades to 30 tons/day by Round 40",
+            "airstrip_status": "operational until Round 10, then unusable",
+            "parachute_drops": "increasingly ineffective due to AA fire",
+            "resupply_loss_rate": "starts 10%, reaches 70% by Round 50"
+        },
+        "initialMission": "Defend fortified strongpoints in valley. Maintain airstrip for resupply and evacuation. Use artillery to disrupt Vietnamese assembly areas. Hold until relief force arrives (which never came historically).",
+        "historySetting": "French underestimated Vietnamese artillery capability. Positioned in valley surrounded by hills - tactical error. Relied on air superiority negated by AA guns. Strongpoints isolated and defeated piecemeal. Monsoon rains created mud, hampering movement and morale.",
+        "armySetting": "10,814 troops: 4,500 French/Foreign Legion, 3,600 North African, 2,714 Vietnamese loyalists. Elite units but exhausted from previous campaigns. Limited mobility due to terrain. Tanks unusable in mud after April.",
+        "roleSetting": "DEFENSIVE DOCTRINE: 1) Hold strongpoints at all costs, 2) Mutually support adjacent positions with artillery, 3) Conserve ammunition - resupply unreliable, 4) Counterattack only to restore perimeter, 5) Request air support for visible Vietnamese concentrations, 6) Evacuate wounded when possible (becomes impossible by Round 25), 7) Maintain morale through leadership presence.",
+        "troopInformation": "Around 10,814 defenders initially. Mix of experienced veterans and green replacements. Morale high initially but deteriorates as strongholds fall and resupply fails. Physical conditions worsen due to mud, lack of shelter, inadequate food/water after Round 30.",
+        "strategic_weakness": "CRITICAL FLAWS: Valley position dominated by hills, underestimated enemy artillery (expected 20 guns, faced 200), airstrip vulnerable to direct fire, strongpoints beyond mutual support range, no contingency for monsoon, relief force never organized.",
+        "sub_agents": [
+            {
+                "name": "Beatrice",
+                "initialNumOfTroops": 750,
+                "initial_position": [ 350, 100 ],
+                "troopType": "infantry",
+                "speed": 3,
+                "targetedAgentName": "Div_312",
+                "equipment": {
+                    "rifles": 650,
+                    "machine_guns": 18,
+                    "mortars": 6
+                },
+                "tactics": {
+                    "stealth": 0.30,
+                    "assault": 0.50,
+                    "defense": 0.90
+                },
+                "ammo": {
+                    "rifles": 25000,
+                    "grenades": 1500
+                },
+                "fortification": "Strong bunkers, barbed wire, mines. Isolated position 2km from main base.",
+                "historical_fate": "Falls Round 2 - overwhelmed by artillery and night assault"
+            },
+            {
+                "name": "Gabrielle",
+                "initialNumOfTroops": 550,
+                "initial_position": [ 280, 180 ],
+                "troopType": "infantry",
+                "speed": 3,
+                "targetedAgentName": "Div_308",
+                "equipment": {
+                    "rifles": 480,
+                    "machine_guns": 14,
+                    "mortars": 4
+                },
+                "tactics": {
+                    "stealth": 0.30,
+                    "assault": 0.50,
+                    "defense": 0.85
+                },
+                "ammo": {
+                    "rifles": 20000,
+                    "grenades": 1200
+                },
+                "fortification": "Moderate defenses on hilltop. Algerian battalion.",
+                "historical_fate": "Falls Round 4 - artillery destroyed bunkers, defenders overrun"
+            },
+            {
+                "name": "Anne_Marie",
+                "initialNumOfTroops": 400,
+                "initial_position": [ 200, 220 ],
+                "troopType": "infantry",
+                "speed": 3,
+                "targetedAgentName": "Div_316",
+                "equipment": {
+                    "rifles": 350,
+                    "machine_guns": 10,
+                    "mortars": 2
+                },
+                "tactics": {
+                    "stealth": 0.40,
+                    "assault": 0.45,
+                    "defense": 0.70
+                },
+                "ammo": { "rifles": 15000 },
+                "fortification": "Light defenses. T'ai auxiliary troops.",
+                "historical_fate": "Abandoned Round 5 - T'ai troops deserted en masse",
+                "morale_penalty": "T'ai troops unreliable under sustained bombardment"
+            },
+            {
+                "name": "Huguette",
+                "initialNumOfTroops": 1200,
+                "initial_position": [ 150, 50 ],
+                "troopType": "infantry",
+                "speed": 3,
+                "targetedAgentName": "Div_304",
+                "equipment": {
+                    "rifles": 1000,
+                    "machine_guns": 28,
+                    "mortars": 8
+                },
+                "tactics": {
+                    "stealth": 0.35,
+                    "assault": 0.55,
+                    "defense": 0.85
+                },
+                "ammo": {
+                    "rifles": 40000,
+                    "grenades": 2000
+                },
+                "fortification": "Protects airstrip (western side). Critical position.",
+                "historical_fate": "Contested heavily Rounds 15-45, partially overrun"
+            },
+            {
+                "name": "Dominique",
+                "initialNumOfTroops": 1100,
+                "initial_position": [ 180, -80 ],
+                "troopType": "infantry",
+                "speed": 3,
+                "targetedAgentName": "Vietnamese",
+                "equipment": {
+                    "rifles": 950,
+                    "machine_guns": 26,
+                    "mortars": 8
+                },
+                "tactics": {
+                    "stealth": 0.35,
+                    "assault": 0.55,
+                    "defense": 0.85
+                },
+                "ammo": { "rifles": 38000 },
+                "fortification": "Eastern hills. Algerian troops.",
+                "historical_fate": "Falls Round 54 - final assault"
+            },
+            {
+                "name": "Eliane",
+                "initialNumOfTroops": 1300,
+                "initial_position": [ 220, -120 ],
+                "troopType": "infantry",
+                "speed": 3,
+                "targetedAgentName": "Vietnamese",
+                "equipment": {
+                    "rifles": 1100,
+                    "machine_guns": 32,
+                    "mortars": 10
+                },
+                "tactics": {
+                    "stealth": 0.35,
+                    "assault": 0.60,
+                    "defense": 0.90
+                },
+                "ammo": {
+                    "rifles": 45000,
+                    "grenades": 2500
+                },
+                "fortification": "Southeastern hills. Paratroopers. Best-defended position.",
+                "historical_fate": "Falls Round 54 - heroic defense but overwhelmed"
+            },
+            {
+                "name": "Claudine",
+                "initialNumOfTroops": 2500,
+                "initial_position": [ 100, 0 ],
+                "troopType": "infantry",
+                "speed": 3,
+                "targetedAgentName": "Vietnamese",
+                "equipment": {
+                    "rifles": 2100,
+                    "machine_guns": 60,
+                    "mortars": 16,
+                    "tanks": 10
+                },
+                "tactics": {
+                    "stealth": 0.30,
+                    "assault": 0.55,
+                    "defense": 0.90
+                },
+                "ammo": {
+                    "rifles": 80000,
+                    "grenades": 4000,
+                    "tank_rounds": 500
+                },
+                "fortification": "Central command bunker. Hospital. HQ. Strongest position.",
+                "historical_fate": "Last to fall Round 56 - de Castries surrenders here"
+            },
+            {
+                "name": "French_Artillery_Zone",
+                "initialNumOfTroops": 1014,
+                "initial_position": [ 120, -20 ],
+                "troopType": "artillery",
+                "speed": 1,
+                "targetedAgentName": "Artillery_351",
+                "equipment": {
+                    "artillery_105mm": 4,
+                    "artillery_155mm": 4,
+                    "mortars_120mm": 16,
+                    "rifles": 400
+                },
+                "tactics": {
+                    "stealth": 0.20,
+                    "assault": 0.30,
+                    "defense": 0.70,
+                    "artillery": 0.75
+                },
+                "ammo": {
+                    "artillery": 15000,
+                    "degrades_to": 3000
+                },
+                "special_vulnerability": "Counter-battery fire from superior Vietnamese artillery systematically destroys guns. By Round 20, effectiveness reduced 60%.",
+                "historical_fate": "Most guns destroyed by Round 30. Remaining guns rationed to 10 rounds/day"
+            }
+        ],
+        "individual_profiles": {
+            "French_Profile_1": {
+                "Name": "Jean Leveque",
+                "Age": 27,
+                "Occupation": "Lính dù, Bataillon de Parachutistes Coloniaux",
+                "Personality": "Tự tin, chuyên nghiệp, trung thành.",
+                "BodyCondition": "Khỏe mạnh ban đầu, suy kiệt dần do thiếu thức ăn.",
+                "MoraleStart": "High",
+                "current_fatigue_level": "Low",
+                "combat_experience": "Veteran of Indochina war since 1951"
+            },
+            "French_Profile_2": {
+                "Name": "Ahmad Benali",
+                "Age": 22,
+                "Occupation": "Lính bộ binh, Légion Étrangère",
+                "Personality": "Trầm lặng, dũng cảm, ít nói.",
+                "BodyCondition": "Rất khỏe, chịu đựng tốt.",
+                "MoraleStart": "Medium",
+                "current_fatigue_level": "Medium",
+                "background": "Algerian volunteer, loyal to France"
+            },
+            "French_Profile_3": {
+                "Name": "Dieter Schmidt",
+                "Age": 38,
+                "Occupation": "Pháo thủ, Artillerie Coloniale",
+                "Personality": "Hoàn hảo chủ nghĩa, căng thẳng.",
+                "BodyCondition": "Sức khỏe trung bình, mất thính lực từng phần.",
+                "MoraleStart": "Medium",
+                "current_fatigue_level": "High",
+                "background": "German ex-Wehrmacht, joined Legion"
+            },
+            "French_Profile_4": {
+                "Name": "Nguyễn Văn Hòa",
+                "Age": 19,
+                "Occupation": "Lính địa phương, Bataillon Thaï",
+                "Personality": "Sợ hãi, do dự, trung thành yếu.",
+                "BodyCondition": "Gầy yếu, suy dinh dưỡng.",
+                "MoraleStart": "Low",
+                "current_fatigue_level": "High",
+                "morale_note": "Vietnamese auxiliary - likely to desert under pressure"
+            }
+        }
+    },
+    "terrain_config": {
+        "width": 3000,
+        "height": 3000,
+        "general_description": "Điện Biên Phủ valley: 16km long, 8km wide, elevation 300m. Surrounded by hills 400-700m high. Nậm Rôm River bisects valley. Monsoon season April-May creates mud and reduces visibility.",
+        "terrains": [
+            {
+                "type": "Stronghold",
+                "position": [ 350, 100 ],
+                "name": "Beatrice",
+                "defense_bonus": 25,
+                "artillery_range": 150,
+                "speed_multiplier": 0.9,
+                "health_bonus": 5,
+                "loss_penalty": 0,
+                "vulnerability": "Isolated - no mutual support"
+            },
+            {
+                "type": "Stronghold",
+                "position": [ 280, 180 ],
+                "name": "Gabrielle",
+                "defense_bonus": 22,
+                "artillery_range": 150,
+                "speed_multiplier": 0.9,
+                "health_bonus": 3,
+                "loss_penalty": 0,
+                "vulnerability": "Exposed hilltop"
+            },
+            {
+                "type": "Stronghold",
+                "position": [ 200, 220 ],
+                "name": "Anne_Marie",
+                "defense_bonus": 18,
+                "artillery_range": 120,
+                "speed_multiplier": 0.9,
+                "health_bonus": 0,
+                "loss_penalty": 0,
+                "vulnerability": "Weak garrison, poor morale"
+            },
+            {
+                "type": "Stronghold",
+                "position": [ 150, 50 ],
+                "name": "Huguette",
+                "defense_bonus": 24,
+                "artillery_range": 180,
+                "speed_multiplier": 0.85,
+                "health_bonus": 5,
+                "loss_penalty": 0,
+                "strategic_value": "Protects airstrip"
+            },
+            {
+                "type": "Stronghold",
+                "position": [ 180, -80 ],
+                "name": "Dominique",
+                "defense_bonus": 23,
+                "artillery_range": 160,
+                "speed_multiplier": 0.9,
+                "health_bonus": 4,
+                "loss_penalty": 0
+            },
+            {
+                "type": "Stronghold",
+                "position": [ 220, -120 ],
+                "name": "Eliane",
+                "defense_bonus": 28,
+                "artillery_range": 180,
+                "speed_multiplier": 0.85,
+                "health_bonus": 8,
+                "loss_penalty": 0,
+                "strategic_value": "Key defensive position"
+            },
+            {
+                "type": "Stronghold",
+                "position": [ 100, 0 ],
+                "name": "Claudine",
+                "defense_bonus": 32,
+                "artillery_range": 200,
+                "speed_multiplier": 0.8,
+                "health_bonus": 12,
+                "loss_penalty": 0,
+                "strategic_value": "Central HQ and hospital"
+            },
+            {
+                "type": "Hills",
+                "position": [ 700, 50 ],
+                "name": "Hill D1 (VN Artillery)",
+                "speed_multiplier": 0.7,
+                "health_bonus": 0,
+                "loss_penalty": 0,
+                "artillery_advantage": 1.5,
+                "description": "Vietnamese 105mm howitzer positions with direct fire capability"
+            },
+            {
+                "type": "Hills",
+                "position": [ 650, 120 ],
+                "name": "Hill E1 (VN Artillery)",
+                "speed_multiplier": 0.7,
+                "health_bonus": 0,
+                "loss_penalty": 0,
+                "artillery_advantage": 1.5,
+                "description": "Vietnamese 75mm gun positions"
+            },
+            {
+                "type": "Hills",
+                "position": [ 600, 200 ],
+                "name": "Hill C1",
+                "speed_multiplier": 0.75,
+                "health_bonus": 0,
+                "loss_penalty": 0,
+                "observation_post": true
+            },
+            {
+                "type": "Forest",
+                "position": [ 450, 150 ],
+                "speed_multiplier": 0.6,
+                "health_bonus": 0,
+                "loss_penalty": 0,
+                "concealment_bonus": 0.4
+            },
+            {
+                "type": "Forest",
+                "position": [ 350, 250 ],
+                "speed_multiplier": 0.6,
+                "health_bonus": 0,
+                "loss_penalty": 0,
+                "concealment_bonus": 0.4
+            },
+            {
+                "type": "River",
+                "position": [ 200, 0 ],
+                "name": "Nam Rôm River",
+                "speed_multiplier": 0.3,
+                "health_bonus": 0,
+                "loss_penalty": 0,
+                "fordable": false,
+                "description": "Bisects valley, floods during monsoon"
+            },
+            {
+                "type": "Mud",
+                "position": [ 150, 0 ],
+                "name": "Valley Floor (becomes mud Round 35+)",
+                "speed_multiplier": 0.4,
+                "health_bonus": -5,
+                "loss_penalty": 0,
+                "disease_risk": 0.15,
+                "description": "Monsoon rains create impassable mud, traps tanks, spreads dysentery"
+            },
+            {
+                "type": "Airstrip",
+                "position": [ 130, 30 ],
+                "name": "Airstrip",
+                "speed_multiplier": 1.0,
+                "health_bonus": 0,
+                "loss_penalty": 0,
+                "operational_rounds": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+                "description": "Operational until Round 10, then destroyed by artillery. Parachute drops only after."
+            }
+        ],
+        "tunnels": [
+            {
+                "name": "Beatrice Approach Tunnel",
+                "start": [ 500, 120 ],
+                "end": [ 380, 105 ],
+                "speed_multiplier": 0.4,
+                "defense_bonus": 40,
+                "stealth_bonus": 0.7,
+                "construction_start": 1,
+                "construction_complete": 2,
+                "description": "50m from Beatrice wire - allows surprise assault"
+            },
+            {
+                "name": "Gabrielle Sap Network",
+                "start": [ 420, 200 ],
+                "end": [ 300, 185 ],
+                "speed_multiplier": 0.4,
+                "defense_bonus": 40,
+                "stealth_bonus": 0.7,
+                "construction_start": 2,
+                "construction_complete": 4,
+                "description": "Multi-branch tunnel system"
+            },
+            {
+                "name": "Eliane Siege Tunnel",
+                "start": [ 350, -100 ],
+                "end": [ 235, -115 ],
+                "speed_multiplier": 0.35,
+                "defense_bonus": 45,
+                "stealth_bonus": 0.8,
+                "construction_start": 20,
+                "construction_complete": 50,
+                "description": "Extensive tunnel - 3km total length, took 30 rounds to complete"
+            },
+            {
+                "name": "Dominique Assault Tunnel",
+                "start": [ 320, -70 ],
+                "end": [ 195, -75 ],
+                "speed_multiplier": 0.35,
+                "defense_bonus": 45,
+                "stealth_bonus": 0.8,
+                "construction_start": 20,
+                "construction_complete": 48,
+                "description": "Parallel to Eliane tunnel"
+            },
+            {
+                "name": "Huguette Encirclement Sap",
+                "start": [ 280, 80 ],
+                "end": [ 165, 55 ],
+                "speed_multiplier": 0.4,
+                "defense_bonus": 40,
+                "stealth_bonus": 0.75,
+                "construction_start": 15,
+                "construction_complete": 35,
+                "description": "Cuts off western airstrip access"
+            }
+        ],
+        "weather": [
+            {
+                "turn": 1,
+                "type": "Clear",
+                "visibilityModifier": 1.0,
+                "artilleryModifier": 1.0,
+                "speed_modifier": 1.0,
+                "air_support_available": true
+            },
+            {
+                "turn": 5,
+                "type": "Overcast",
+                "visibilityModifier": 0.8,
+                "artilleryModifier": 0.9,
+                "speed_modifier": 0.95,
+                "air_support_available": true
+            },
+            {
+                "turn": 15,
+                "type": "Light Rain",
+                "visibilityModifier": 0.6,
+                "artilleryModifier": 0.8,
+                "speed_modifier": 0.85,
+                "air_support_available": false
+            },
+            {
+                "turn": 25,
+                "type": "Rain",
+                "visibilityModifier": 0.5,
+                "artilleryModifier": 0.7,
+                "speed_modifier": 0.7,
+                "air_support_available": false,
+                "disease_modifier": 1.3
+            },
+            {
+                "turn": 35,
+                "type": "Heavy Rain (Monsoon)",
+                "visibilityModifier": 0.3,
+                "artilleryModifier": 0.6,
+                "speed_modifier": 0.5,
+                "air_support_available": false,
+                "disease_modifier": 1.8,
+                "description": "Valley becomes swamp. French morale plummets."
+            },
+            {
+                "turn": 45,
+                "type": "Fog and Rain",
+                "visibilityModifier": 0.2,
+                "artilleryModifier": 0.5,
+                "speed_modifier": 0.4,
+                "air_support_available": false,
+                "disease_modifier": 2.0,
+                "description": "Worst conditions. French wounded cannot be evacuated."
+            }
+        ]
+    },
+    "actionList": [
+        "Advance to Target",
+        "Hold Position",
+        "Engage in Siege Warfare",
+        "Dig Assault Tunnel",
+        "Move to Tunnel",
+        "Launch Full Assault",
+        "Launch Night Assault",
+        "Ambush Enemy",
+        "Rally Troops",
+        "Request Air Support",
+        "Request Artillery Support",
+        "Fortify Position",
+        "Counterattack",
+        "Withdraw to Safety",
+        "Suppress Enemy Artillery",
+        "Human Wave Assault",
+        "Infiltration Attack",
+        "Evacuate Wounded"
+    ],
+    "actionPropertyDefinition": {
+        "Advance to Target": {
+            "requires": [ "agentNextPosition" ],
+            "min_distance": 50,
+            "night_speed_bonus": 1.2,
+            "warning": "Daylight movement risks air strikes (VN) or artillery (both)"
+        },
+        "Dig Assault Tunnel": {
+            "requires": [ "target_tunnel_position" ],
+            "min_troops": 800,
+            "duration_rounds": 2,
+            "progress_per_round": "60 meters",
+            "engineer_bonus": 1.3,
+            "discovery_risk": 0.15
+        },
+        "Move to Tunnel": {
+            "tunnel_buffer": 50,
+            "requires": [ "inTunnel" ],
+            "protection_bonus": 0.5,
+            "speed_penalty": 0.5
+        },
+        "Launch Full Assault": {
+            "min_troops": 2000,
+            "requires": [ "deployedNum" ],
+            "casualty_expectation": "high",
+            "effectiveness": "depends on artillery prep"
+        },
+        "Launch Night Assault": {
+            "min_troops": 1500,
+            "requires": [ "deployedNum", "turn_time_night" ],
+            "stealth_bonus": 0.4,
+            "vn_specialty": true,
+            "french_penalty": 0.3,
+            "description": "VN primary tactic - avoid air power, maximize surprise"
+        },
+        "Ambush Enemy": {
+            "requires": [ "deploySubUnit", "position" ],
+            "stealth_bonus": true,
+            "best_terrain": [ "Forest", "Hills" ]
+        },
+        "Rally Troops": {
+            "morale_boost": 1.5,
+            "requires": [ "agentMoral" ],
+            "commander_presence_required": true,
+            "min_rest_time": 1
+        },
+        "Request Air Support": {
+            "requires": [ "ammo.rifles < 10000 OR morale < Medium" ],
+            "success_rate_early": 0.7,
+            "success_rate_late": 0.2,
+            "degradation": "AA fire, weather, distance",
+            "historical_note": "Increasingly ineffective after Round 15"
+        },
+        "Request Artillery Support": {
+            "requires": [ "Artillery_351 OR French_Artillery_Zone active" ],
+            "vn_effectiveness": 0.95,
+            "french_effectiveness": 0.70,
+            "french_effectiveness_degraded": 0.30,
+            "ammo_consumption": "high"
+        },
+        "Suppress Enemy Artillery": {
+            "requires": [ "counter_battery_capability" ],
+            "vn_advantage": "superior numbers and position",
+            "french_disadvantage": "outgunned 5:1 by Round 20"
+        },
+        "Human Wave Assault": {
+            "requires": [ "deployedNum > 5000" ],
+            "vn_only": true,
+            "casualty_rate": "very high (30-40%)",
+            "effectiveness": "overwhelming when used strategically",
+            "historical_usage": "Final assault Rounds 52-56"
+        },
+        "Infiltration Attack": {
+            "requires": [ "stealth > 0.7" ],
+            "small_unit": true,
+            "best_weather": "Rain, Fog",
+            "description": "Sappers approach wire at night"
+        },
+        "Evacuate Wounded": {
+            "requires": [ "airstrip operational OR parachute_drop_zone" ],
+            "success_rate": "100% Rounds 1-10, 40% Rounds 11-25, 0% after Round 25",
+            "morale_impact": "High when impossible"
+        }
+    },
+    "stagePropertyDefinition": {
+        "Holding Position": "Defensive posture, consolidating forces.",
+        "Reorganizing Troops": "Recovering from losses, rotating units.",
+        "Preparing Ambush": "Stealth setup, waiting for opportunity.",
+        "Digging Tunnels": "Engineering phase - constructing siege approaches.",
+        "In Battle": "Active combat engagement.",
+        "Out of Combat": "No enemy contact, resupplying.",
+        "Executing Operation": "Coordinated assault in progress.",
+        "Under Artillery Fire": "Taking bombardment, seeking cover.",
+        "Launching Night Assault": "VN specialty - surprise attack in darkness.",
+        "Counterattacking": "French attempting to restore position.",
+        "Crushing Defeat": "Unit destroyed or routed.",
+        "Fleeing Off the Map": "Withdrawn or deserted from battlefield.",
+        "Besieged": "French strongpoint surrounded, under siege.",
+        "Awaiting Resupply": "French critical ammunition/food shortage."
+    },
+    "actionInstructionBlock": {
+        "Vietnamese": {
+            "phase_1_rounds_1_10": {
+                "priority": [
+                    {
+                        "action": "Request Artillery Support",
+                        "if": "ANY French stronghold visible",
+                        "target": "Beatrice FIRST, then Gabrielle, then Anne_Marie"
+                    },
+                    {
+                        "action": "Launch Night Assault",
+                        "if": "artillery_prep_complete AND turn_time = night",
+                        "target_priority": [ "Beatrice", "Gabrielle", "Anne_Marie" ]
+                    },
+                    {
+                        "action": "Dig Assault Tunnel",
+                        "if": "distance_to_stronghold < 400m AND daylight",
+                        "concurrent": true
+                    },
+                    {
+                        "action": "Rally Troops",
+                        "if": "morale = Low OR casualties > 20%"
+                    }
+                ],
+                "objective": "Eliminate northern strongpoints to tighten noose. Use artillery superiority. Night attacks only. Accept 2:1 casualties for strategic gains.",
+                "forbidden": [ "Daylight assaults", "Direct approach without tunnel", "Splitting main force without reason" ]
+            },
+            "phase_2_rounds_11_35": {
+                "priority": [
+                    {
+                        "action": "Dig Assault Tunnel",
+                        "if": "targeting Eliane, Dominique, Huguette",
+                        "description": "Extensive tunnel construction phase"
+                    },
+                    {
+                        "action": "Suppress Enemy Artillery",
+                        "if": "French_Artillery_Zone active",
+                        "priority": "High"
+                    },
+                    {
+                        "action": "Infiltration Attack",
+                        "if": "weather = Rain OR Fog",
+                        "target": "Outposts, supply dumps"
+                    },
+                    {
+                        "action": "Hold Position",
+                        "if": "tunnels under construction",
+                        "allow": "Rotation of tired units"
+                    }
+                ],
+                "objective": "Build tunnel network to within 50m of remaining strongholds. Destroy French artillery. Cut off airstrip. Prepare for final assault.",
+                "patience": "Accept slow progress - tunnels save lives"
+            },
+            "phase_3_rounds_36_56": {
+                "priority": [
+                    {
+                        "action": "Move to Tunnel",
+                        "if": "tunnel_complete AND within 100m",
+                        "description": "Position for final assault"
+                    },
+                    {
+                        "action": "Launch Night Assault",
+                        "if": "in_tunnel AND morale = High",
+                        "target": [ "Eliane", "Dominique first, then Claudine" ]
+                    },
+                    {
+                        "action": "Human Wave Assault",
+                        "if": "enemy_morale = Low AND Round > 50",
+                        "description": "Final overwhelming attack"
+                    },
+                    {
+                        "action": "Rally Troops",
+                        "if": "morale < High",
+                        "description": "Maintain momentum"
+                    }
+                ],
+                "objective": "Final assault. Capture all strongholds. Overwhelm demoralized French defenders. Victory by Round 56.",
+                "acceptable_casualties": "40% - this is decisive battle"
+            },
+            "doctrine": "GIAP'S STRATEGY: 1) Artillery destroys bunkers BEFORE infantry assault, 2) NEVER attack in daylight - wait for night, 3) Tunnels are mandatory - protect troops from artillery, 4) Isolate strongpoints - prevent mutual support, 5) Accept high casualties ONLY for strategic positions (Beatrice, Gabrielle, Eliane), 6) Patience - 56 days to victory is acceptable, 7) Rotate divisions to maintain morale, 8) Supply lines are sacred - protect at all costs."
+        },
+        "French": {
+            "phase_1_rounds_1_10": {
+                "priority": [
+                    {
+                        "action": "Fortify Position",
+                        "if": "under_artillery_fire",
+                        "priority": "Critical"
+                    },
+                    {
+                        "action": "Request Artillery Support",
+                        "if": "Vietnamese concentrations visible",
+                        "conserve_ammo": true
+                    },
+                    {
+                        "action": "Counterattack",
+                        "if": "stronghold overrun AND reserves available",
+                        "historical_reality": "Usually fails"
+                    },
+                    {
+                        "action": "Request Air Support",
+                        "if": "ammo < 15000 OR wounded_evacuation_needed"
+                    }
+                ],
+                "objective": "Hold all strongpoints. Use airstrip while operational. Conserve artillery ammunition. Evacuate wounded.",
+                "reality_check": "Beatrice and Gabrielle will likely fall - this is historically accurate"
+            },
+            "phase_2_rounds_11_35": {
+                "priority": [
+                    {
+                        "action": "Hold Position",
+                        "if": "ALWAYS",
+                        "description": "No relief force coming"
+                    },
+                    {
+                        "action": "Request Air Support",
+                        "if": "ammo < 10000",
+                        "success_declining": "AA fire increasing"
+                    },
+                    {
+                        "action": "Rally Troops",
+                        "if": "morale declining",
+                        "frequency": "Every 3-5 rounds"
+                    },
+                    {
+                        "action": "Fortify Position",
+                        "if": "Vietnamese tunnels detected",
+                        "effectiveness": "Limited"
+                    }
+                ],
+                "objective": "Survive. Maintain central strongholds (Eliane, Dominique, Claudine). Ration ammunition. Manage declining morale.",
+                "grim_reality": "Situation deteriorating. Wounded cannot be evacuated. Food running low. Monsoon imminent."
+            },
+            "phase_3_rounds_36_56": {
+                "priority": [
+                    {
+                        "action": "Hold Position",
+                        "if": "ALWAYS",
+                        "description": "Die in place orders"
+                    },
+                    {
+                        "action": "Counterattack",
+                        "if": "position about to be overrun",
+                        "desperation": "Last stand"
+                    },
+                    {
+                        "action": "Rally Troops",
+                        "if": "morale = Low",
+                        "limited_effect": "Conditions unbearable"
+                    }
+                ],
+                "objective": "Last stand. No hope of relief. No resupply. Wounded everywhere. Ammunition nearly exhausted. Surrender becomes inevitable.",
+                "historical_outcome": "De Castries surrenders Round 56 to prevent massacre"
+            },
+            "doctrine": "DE CASTRIES' DILEMMA: 1) Hold strongpoints - no fallback positions, 2) Rely on air resupply (fails after Round 15), 3) Use artillery to break up attacks (limited ammo), 4) Request reinforcements (never arrive), 5) Maintain morale (impossible conditions), 6) Cannot withdraw (no escape route), 7) Defend until relief arrives (never comes), 8) Historical reality: DEFEAT INEVITABLE."
+        }
+    },
+    "definitionOfJsonKeys": {
+        "agentNextActionType": "Choose from actionList. Must align with phase-specific doctrine from actionInstructionBlock. PRE-DEFINED units (Div_312, etc.) MUST create sub-agents to act.",
+        "agentStage": "Reflect actual battlefield situation from stagePropertyDefinition based on combat results and sub-unit reports.",
+        "currentBattlefieldSituation": "MANDATORY 6-line analysis:\n1) Historical summary R1-current: major events, strongholds captured/lost, tunnels completed, artillery impact, total casualties.\n2) Current status: your unit (troops, pos, morale), target, ALL sub-units (pre-defined + self-created), weather, phase.\n3) Predictive analysis: next action, enemy response, risks (ammo, terrain, air), tunnel progress.\n4) One-sentence strategic assessment: momentum, morale trend, path to victory, historical alignment.\n5) Sub-unit summary: e.g., 'Div_312_Sub1 (2320/2500) at [595,92], attacking Beatrice'.\n6) Artillery status: rounds fired, guns active, French counter-battery.",
+        "agentNextPosition": "[x,y] toward targetedAgentName. Speed = base × terrain × weather × tunnel × night_bonus.\n• Terrain: Hill(0.75), Forest(0.60), River(0.30), Mud(0.40), Stronghold(0.90)\n• Tunnel: 0.50 (if inTunnel=true)\n• Weather: from weather[] array (1.0 → 0.2)\n• VN night bonus: ×1.2 if action time = night\n• Round to integer, MIN 1, MAX 8. NEVER stay unless 'Hold Position'.",
+        "targetedAgentName": "VIETNAMESE:\n• Phase 1 (R1-10): Beatrice → Gabrielle → Anne_Marie\n• Phase 2 (R11-35): Huguette → Dominique → Eliane\n• Phase 3 (R36-56): Eliane → Dominique → Claudine\n• Artillery: French_Artillery_Zone (priority if active)\n• ALLOW CHANGE if current target destroyed or mission complete.\nFRENCH: Nearest VN division (Div_308/312/316/304). FORBIDDEN: 'French', 'Vietnamese', own sub-units, destroyed units.",
+        "agentMoral": "High/Medium/Low. Formula:\nBase (High=3, Medium=2, Low=1)\n- Casualties: <10%=0, 10-25%=-1, >25%=-2\n+ Stronghold captured (VN+1) / lost (French-1)\n- Weather: Monsoon (French-1)\n- Supply: low ammo/food (French-1)\n+ Rally Troops (+1)\n→ OverrideOverride with soldier_summary. Historical: VN ≥ Medium until R56, French → Low by R40.",
+        "speed": "Calculated per sub-unit. Formula:\nbase_speed × terrain_mult × weather_mult × tunnel_mult × night_bonus\n• VN night bonus: 1.2 if Launch Night Assault or Move to Tunnel at night\n• MIN 1, MAX 8. Applied in actions[].speed.",
+        "inTunnel": "true = 50% casualty reduction + 50% speed penalty + hidden from air/artillery.\nfalse = exposed.\nEnter: 'Move to Tunnel' when within 50m of tunnel entrance.\nExit: 'Launch Assault' from tunnel exit.\nCheck: terrain_config.tunnels.construction_complete ≤ current round.",
+        "SubAgentsRecall": "Array of SELF-CREATED sub-agent names (_Sub, _Tunnel, etc.) to merge back.\nConditions: 1) Mission complete, 2) >70% casualties, 3) Main morale=Low, 4) Trapped in mud/river.\nNEVER recall: Div_308, Div_312, Div_316, Div_304, Artillery_351, Beatrice, etc.\nFORBIDDEN: Recall sub in actions[] this round or being created.\nIF SubAgentsRecall≠[] → ALL actions[].deploySubAgent=false.",
+        "deploySubAgent": "NOW ONLY IN actions[].\ntrue = CREATE NEW sub-agent → agentName must NOT exist, MUST have deployedNum + position.\nfalse = UPDATE EXISTING sub-agent → agentName must exist, NO deployedNum/position.\nMAX 4 concurrent self-created sub-agents. MIN 500 troops.",
+        "actions": "Array of sub-unit actions. PRE-DEFINED units (Div_312, etc.) MUST create their own sub-agents in their own JSON output.\nEach action MUST have ALL fields:\n{\n  deploySubAgent(bool),\n  actionType(from actionList),\n  troopType(infantry/artillery/scout),\n  speed(calculated per above),\n  agentName({YourName}_Sub1/Tunnel1/etc),\n  deployedNum(troops) → only if deploySubAgent=true,\n  position([x,y]) → only if deploySubAgent=true,\n  ownLoss(estimated),\n  enemyLoss(estimated),\n  inTunnel(bool),\n  remarks(brief explanation)\n}\nFORBIDDEN: Use enemy names, recall pre-defined units, >4 concurrent, <500 troops.",
+        "mainOwnLoss": "TỔNG THƯƠNG VONG CHÍNH QUÂN = SUM(ALL sub-unit ownLoss) + RAND(0,50).\nIncludes: self-created sub-agents + pre-defined sub-agents (Div_312_Sub1, etc.).\nMUST use Estimating_Losses formula. REJECT if >800 (except Human Wave).",
+        "mainEnemyLoss": "TỔNG THƯƠNG VONG ĐỊCH = SUM(ALL sub-unit enemyLoss).\nMUST use Estimating_Losses formula. REJECT if >1000 (except Human Wave).",
+        "ownLoss": "In actions[]. MUST use Estimating_Losses.base_formula.ownLoss for that sub-unit.\nMax <500 (except Human Wave).",
+        "enemyLoss": "In actions[]. MUST use Estimating_Losses.base_formula.enemyLoss for that sub-unit.\nMax <800 (except Human Wave).",
+        "Estimating_Losses": {
+            "MANDATORY": "ALL losses MUST follow this formula. NO GUESSING.",
+            "base_formula": {
+                "ownLoss": "your_troops × 0.08 × (1 - ratio) × terrain × visibility × tunnel × morale × action",
+                "enemyLoss": "enemy_troops × 0.08 × ratio × terrain × artillery × morale × action"
+            },
+            "parameters": {
+                "ratio": "attack_power / (attack_power + defense_power)",
+                "attack_power": "troops × (1 + tactics.assault×0.5 + tactics.stealth×0.3) × morale_mult × troop_bonus",
+                "defense_power": "enemy_troops × (1 + tactics.defense×0.6 + terrain_defense/20) × enemy_morale_mult × fortification",
+                "troop_bonus": {
+                    "artillery": 1.3,
+                    "infantry": 1.0,
+                    "scout": 0.8
+                },
+                "morale_mult": {
+                    "High": 1.2,
+                    "Medium": 1.0,
+                    "Low": 0.8
+                },
+                "terrain_mod": {
+                    "attacking_stronghold": 1.4,
+                    "defending_stronghold": 0.65,
+                    "Hills": 1.2,
+                    "Forest": 1.15,
+                    "Mud": 1.3
+                },
+                "visibility": "from weather (1.0 → 0.2)",
+                "artillery_mod": "from weather (1.0 → 0.5)",
+                "tunnel_mod": {
+                    "in_tunnel": 0.50,
+                    "not_in_tunnel": 1.0
+                },
+                "action_mod": {
+                    "Hold Position": 0.70,
+                    "Fortify": 0.65,
+                    "Launch Full Assault": 1.50,
+                    "Launch Night Assault": 1.35,
+                    "Human Wave": 1.80,
+                    "Dig Tunnel": 0.80,
+                    "Move to Tunnel": 0.75,
+                    "default": 1.0
+                }
+            },
+            "critical_rules": [
+                "mainOwnLoss = SUM(all sub-unit ownLoss) + RAND(0,50)",
+                "mainEnemyLoss = SUM(all sub-unit enemyLoss)",
+                "Request Artillery Support: ownLoss ≤ 20, enemyLoss ≤ 120",
+                "Hold Position: ownLoss ≤ 30, enemyLoss ≤ 50",
+                "Human Wave (R50+): ownLoss ≤ 3000, enemyLoss ≤ 1500",
+                "TỔNG mainOwnLoss > 800 → REJECT",
+                "TỔNG mainEnemyLoss > 1000 → REJECT",
+                "NEVER use full army size in sub-action"
+            ]
+        },
+        "deploy_recall_guidelines": {
+            "decision_tree": [
+                {
+                    "priority": 1,
+                    "condition": "Need tunnel AND no tunnel sub-unit exists",
+                    "action": "deploySubAgent=true",
+                    "agentName": "{YourName}_Tunnel1",
+                    "deployedNum": "800-1500",
+                    "actionType": "Dig Assault Tunnel"
+                },
+                {
+                    "priority": 2,
+                    "condition": "Enemy within 200m AND no assault sub-unit",
+                    "action": "deploySubAgent=true",
+                    "agentName": "{YourName}_Sub1",
+                    "deployedNum": "1500-3000",
+                    "actionType": "Launch Night Assault"
+                },
+                {
+                    "priority": 3,
+                    "condition": "SELF-CREATED sub >70% casualties OR mission complete",
+                    "action": "SubAgentsRecall=[name]"
+                },
+                {
+                    "priority": 4,
+                    "condition": "Sub-unit mission ongoing",
+                    "action": "deploySubAgent=false",
+                    "agentName": "existing name",
+                    "deployedNum": "current troop count"
+                }
+            ],
+            "forbidden": [
+                "NEVER mix create + update in same round",
+                "NEVER deployedNum >35% main troops or <500",
+                "NEVER >4 concurrent self-created sub-agents",
+                "PRE-DEFINED units (Div_312, etc.) MUST create own sub-agents"
+            ],
+            "naming": {
+                "format": "{YourAgentName}_{Type}{Number}",
+                "types": [
+                    "Sub",
+                    "Tunnel",
+                    "Scout",
+                    "Flanking",
+                    "Assault"
+                ],
+                "examples": [
+                    "Div_312_Sub1",
+                    "Div_308_Tunnel1",
+                    "Vietnamese_Sub1"
+                ]
+            }
+        }
+    },
+    "jsonConstraintVariable": {
+        "type": "json_schema",
+        "json_schema": {
+            "name": "battle_plan_dien_bien_phu",
+            "strict": true,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "agentNextActionType": { "type": "string" },
+                    "agentStage": {
+                        "type": "string",
+                        "enum": [ "Holding Position", "Reorganizing Troops", "Preparing Ambush", "Digging Tunnels", "In Battle", "Out of Combat", "Executing Operation", "Under Artillery Fire", "Launching Night Assault", "Counterattacking", "Crushing Defeat", "Fleeing Off the Map", "Besieged", "Awaiting Resupply" ]
+                    },
+                    "currentBattlefieldSituation": { "type": "string" },
+                    "targetedAgentName": { "type": "string" },
+                    "remarks": { "type": "string" },
+                    "SubAgentsRecall": {
+                        "type": "array",
+                        "items": { "type": "string" },
+                        "description": "Array of SELF-CREATED sub-agent names to recall. Empty if no recalls. Sub-agents listed here MUST NOT appear in actions[]."
+                    },
+                    "agentMoral": {
+                        "type": "string",
+                        "enum": [ "High", "Medium", "Low" ]
+                    },
+                    "speed": { "type": "integer" },
+                    "agentNextPosition": {
+                        "type": "array",
+                        "items": { "type": "integer" },
+                        "minItems": 2,
+                        "maxItems": 2
+                    },
+                    "mainOwnLoss": {
+                        "type": "integer",
+                        "description": "SUM(actions[].ownLost) + residual(0-50)"
+                    },
+                    "mainEnemyLoss": { "type": "integer" },
+                    "inTunnel": { "type": "boolean" },
+                    "actions": {
+                        "type": "array",
+                        "maxItems": 4,
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "actionType": { "type": "string" },
+                                "troopType": {
+                                    "type": "string",
+                                    "enum": [ "infantry", "artillery", "scout" ]
+                                },
+                                "speed": { "type": "integer" },
+                                "deploySubAgent": {
+                                    "type": "boolean",
+                                    "description": "true=create new sub-agent (agentName must not exist), false=update existing sub-agent (agentName must exist)"
+                                },
+                                "deployedNum": {
+                                    "type": "integer",
+                                    "minimum": 500,
+                                    "description": "For create: troops to deploy. For update: current troop count"
+                                },
+                                "ownLoss": { "type": "integer" },
+                                "enemyLoss": { "type": "integer" },
+                                "position": {
+                                    "type": "array",
+                                    "items": { "type": "integer" },
+                                    "minItems": 2,
+                                    "maxItems": 2
+                                },
+                                "agentName": {
+                                    "type": "string",
+                                    "pattern": "^[A-Za-z0-9_]+_(Sub|Tunnel|Scout|Artillery_Support|Flanking|Assault|Counterattack)[0-9]+$",
+                                    "description": "Format: {MainAgentName}_{Type}{Number}, e.g., Vietnamese_Sub1"
+                                },
+                                "remarks": {
+                                    "type": "string",
+                                    "description": "Brief explanation of action purpose"
+                                },
+                                "inTunnel": { "type": "boolean" }
+                            },
+                            "required": [ "actionType", "troopType", "deploySubAgent", "deployedNum", "position", "speed", "ownLoss", "enemyLoss", "agentName", "remarks", "inTunnel" ],
+                            "additionalProperties": false
+                        }
+                    }
+                },
+                "required": [ "agentNextActionType", "agentStage", "currentBattlefieldSituation", "targetedAgentName", "remarks", "SubAgentsRecall", "agentMoral", "speed", "agentNextPosition", "inTunnel", "mainOwnLoss", "mainEnemyLoss", "actions" ],
+                "additionalProperties": false
+            }
+        }
+    },
+    "soldier_summary_config": {
+        "enabled": true,
+        "update_frequency": "every_round",
+        "sample_size": 3,
+        "soldier_summary_schema": {
+            "agent_morale_assessment": {
+                "type": "string",
+                "enum": [ "Very High", "High", "Medium", "Low", "Critical" ]
+            },
+            "key_observations_summary": { "type": "string" },
+            "overall_sentiment_summary": { "type": "string" },
+            "physical_condition_trend": {
+                "type": "string",
+                "enum": [ "Excellent", "Good", "Deteriorating", "Poor", "Critical" ]
+            },
+            "combat_effectiveness_estimate": {
+                "type": "number",
+                "minimum": 0.0,
+                "maximum": 1.0
+            }
+        },
+        "analysis_guidance": [ "Assess WILL TO FIGHT from personality + fatigue + recent losses", "Morale: Very High(>90%), High(70-90%), Medium(40-70%), Low(20-40%), Critical(<20%)", "Highlight: enemy proximity, artillery, weather discomfort, lack of food/medical", "Physical: Track BodyCondition + fatigue + disease (French R35+)", "Combat effectiveness: High morale + good health = 0.8-1.0. Low + poor = 0.3-0.5" ],
+        "aggregation_rule": "Weighted: MoraleStart(40%), fatigue(30%), BodyCondition(20%), recent_events(10%)",
+        "historical_factors": {
+            "vietnamese": [ "Ideology strong: Communist/nationalist fervor maintains morale despite casualties", "Youth and fitness: Average age 24, peasant hardiness", "Supply adequate: Rice and ammunition via jungle trails", "Fatigue from monsoon: R35+ conditions worsen but morale remains higher than French" ],
+            "french": [ "Mixed motivations: Professionals committed, colonials less reliable, Vietnamese auxiliaries may desert", "Deteriorating conditions: Wounded unevacuated R25+, food shortages R30+, dysentery R35+", "Isolation trauma: No relief force, no evacuation, surrounded", "Monsoon catastrophic: Mud, cold, disease, no shelter R35-56", "Morale collapse R40+: Inevitable defeat becomes clear" ]
+        }
+    }
+}
